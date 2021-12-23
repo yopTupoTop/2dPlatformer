@@ -6,5 +6,5 @@ public interface IInput
 {
    public void Update();
 
-   public void Reset();
+   //public void Reset();
 }
