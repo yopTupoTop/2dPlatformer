@@ -1,26 +1,25 @@
-﻿using UnityEngine;
+﻿using System;
+using Input;
+using UnityEngine;
 
 namespace Player
 {
-    public class MovementController : IMove
+    public class MovementController : MonoBehaviour
     {
-        private Rigidbody2D _rigidbody;
-        private float _speed;
-        
-        public MovementController(Rigidbody2D rigidbody, float speed)
+        public CharacterController CharacterController;
+        private float MovementSpeed;
+        private IInput _input;
+
+        private void Awake()
         {
-            _speed = speed;
-            _rigidbody = rigidbody;
-        }
-        
-        public void Move()
-        {
-            
+            _input = GameManager.Input;
         }
 
-        public void Jump()
+        private void Update()
         {
-            
+            Vector3 movementVector = Vector3.zero;
+            CharacterController.Move(MovementSpeed * movementVector * Time.deltaTime);
         }
+        
     }
 }

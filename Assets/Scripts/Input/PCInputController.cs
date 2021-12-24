@@ -2,20 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PCInputController : IInput
+namespace Input
 {
-    public int JumpForce;
-    public void Update()
+    public class PCInputController : InputController
     {
-        
-        Vector2 resVector = Vector2.zero;
-        
-        if (UnityEngine.Input.GetKey(KeyCode.W)) resVector += Vector2.up;
-        if (UnityEngine.Input.GetKey(KeyCode.A)) resVector += Vector2.left;
-        if (UnityEngine.Input.GetKey(KeyCode.S)) resVector += Vector2.down;
-        if (UnityEngine.Input.GetKey(KeyCode.D)) resVector += Vector2.right;
-        if (UnityEngine.Input.GetKey(KeyCode.Space)) resVector += new Vector2(0, JumpForce);
+        public override Vector2 Axis
+        {
+            get
+            {
+                Vector2 axis = SimpleInputAxis();
 
+                if (axis == Vector2.zero)
+                    axis = UnityAxis();
+                return axis;
+            }
+        }
 
+        private static Vector2 UnityAxis() => 
+            new Vector2(UnityEngine.Input.GetAxis(Horizontal), UnityEngine.Input.GetAxis(Vertical));
     }
 }

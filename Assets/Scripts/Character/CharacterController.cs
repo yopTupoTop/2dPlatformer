@@ -15,4 +15,9 @@ public class CharacterController : MonoBehaviour
     {
         
     }
+
+    public void Move(Vector2 movementVector)
+    {
+        throw new System.NotImplementedException();
+    }
 }

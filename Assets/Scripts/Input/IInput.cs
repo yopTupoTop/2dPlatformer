@@ -1,10 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public interface IInput
+namespace Input
 {
-   public void Update();
+   public interface IInput
+   {
+      Vector2 Axis { get;  }
 
-   //public void Reset();
+      bool IsAttackButtonUp();
+   }
 }
