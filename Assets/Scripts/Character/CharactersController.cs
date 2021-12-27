@@ -1,20 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Character.Options;
 using UnityEngine;
 
-public class CharactersController : MonoBehaviour
+public abstract class CharactersController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public DamageController Damage;
+    public AttackController Attack;
+    public HealthController Health;
+    public AnimationController Animation;
+    public IMove Movement;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-   
 }

@@ -18,7 +18,7 @@ public class AnimationController : MonoBehaviour, IAnimationStateReader
     private readonly int _walkingStateHash = Animator.StringToHash("move");
     private readonly int _deathStateHash = Animator.StringToHash("die");
 
-    private Animator _animator;
+    [SerializeField] private Animator _animator;
 
     public event Action<AnimatorState> StateEntered;
     public event Action<AnimatorState> StateExited;

@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class AttackController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Transform Aim;
+    private float AttackRadius;
 
-    // Update is called once per frame
-    void Update()
+    public void OnAttack()
     {
-        
+        if (Vector3.Distance(Aim.transform.position, transform.position) <= AttackRadius)
+        {
+            Animator.SetBool(Attack, true);
+            Animator.SetBool(Walking, false);
+        }
+
+        else
+        {
+            Animator.SetBool(Attack, false);
+            Animator.SetBool(Walking, true);
+        }
     }
 }
